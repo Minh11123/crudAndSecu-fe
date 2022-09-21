@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../css/register.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="id01" class="modal">
+      <form class="modal-content animate" action="">
+        <div class="container">
+          <label for="username"><b>Tên đăng nhập</b></label>
+          <input type="text" placeholder="Nhập vào tên đăng nhập (6 - 50 ký tự)" name="username" id="username" value=""
+                 onkeyup="$('#incorrect-mess').css('display', 'none')" required>
+
+          <label for="password"><b>Mật khẩu</b></label>
+          <input type="password" placeholder="Nhập vào mật khẩu (6 - 50 ký tự)" name="password" id="password" value=""
+                 onkeyup="$('#incorrect-mess').css('display', 'none')" required>
+
+          <label for="rePassword"><b>Nhập lại mật khẩu</b></label>
+          <input type="password" placeholder="Nhập lại mật khẩu" name="rePassword" id="rePassword" value=""
+                 onkeyup="$('#incorrect-mess').css('display', 'none')" required>
+
+          <label for="firstName"><b>Họ</b></label>
+          <input type="text" placeholder="Nhập vào họ" name="firstName" id="firstName" value=""
+                 onkeyup="$('#incorrect-mess').css('display', 'none')" required>
+
+          <label for="lastName"><b>Tên</b></label>
+          <input type="text" placeholder="Nhập vào tên" name="lastName" id="lastName" value=""
+                 onkeyup="$('#incorrect-mess').css('display', 'none')" required>
+
+          <input type="button" value="Đăng ký" onclick="register()" id="register-btn"/>
+        </div>
+      </form>
+    </div>
+
+    <!-- import script -->
+    <script src="../js/storage.js"></script>
+    <script src="../js/register.js"></script>
+    <script src="../js/constant.js"></script>
+
+  </body>
+
+</html>

@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Style the header */
+
+.header {
+    background-color: #f1f1f1;
+    margin-bottom: 70px;
+    text-align: center;
+    font-size: 35px;
+}
+
+
+/* Style the footer */
+
+.footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+}
+
+.page-nav {
+    display: flex;
+    justify-content: end;
+}
+
+.page-nav > div {
+    display: flex;
+}
+
+.page-nav > div > div, input {
+    margin-left: 10px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#search-account-input {
+    margin: 0 20px 0 0;
+}

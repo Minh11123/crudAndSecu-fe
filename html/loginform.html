@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../css/loginform.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="id01" class="modal">
+
+  <form class="modal-content animate" action="">
+    <div class="imgcontainer">
+      <img src="../asset/avatar.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="username"><b>Tên đăng nhập</b></label>
+      <input type="text" placeholder="Nhập vào tên đăng nhập" name="username" id="username" value=""
+             onkeyup="$('#incorrect-mess').css('display', 'none')" required>
+
+      <label for="password"><b>Mật khẩu</b></label>
+      <input type="password" placeholder="Nhập vào mật khẩu" name="password" id="password" value=""
+             onkeyup="$('#incorrect-mess').css('display', 'none')" required>
+
+      <div id="incorrect-mess">Đăng nhập thất bại: Tên đăng nhập hoặc mật khẩu không đúng</div>
+      <input type="button" value="Đăng nhập" onclick="login()" id="login-btn"/>
+      <label>
+        <input type="checkbox" id="rememberMe" name="remember"> Ghi nhớ
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1; display: flex; justify-content: space-between">
+      <div>
+        <button type="button" style='visibility:hidden' class="cancelbtn"></button>
+        <span class="psw"><a href="#">Quên mật khẩu?</a></span>
+      </div>
+      <div>
+        <button type="button" style='visibility:hidden' class="cancelbtn"></button>
+        <span class="psw"><a href="registerform.html">Đăng ký</a></span>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- import script -->
+<script src="../js/login.js"></script>
+<script src="../js/storage.js"></script>
+<script src="../js/constant.js></script>
+
+</body>
+
+</html>
