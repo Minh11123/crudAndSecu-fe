@@ -31,7 +31,6 @@ function logout() {
 
     // redirect to login page
     window.location.replace("http://localhost:63342/final-exam-web/html/loginform.html");
-
 }
 
 function showSuccessSnackBar(snackbarMessage) {

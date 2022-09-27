@@ -1,11 +1,4 @@
-const langHeader = {
-    "lang": localStorage.getItem("LANG") ? localStorage.getItem("LANG") : "vi"
-}
 
-const headers = {
-    "Authorization": "Basic " + btoa(localStorage.getItem("USERNAME") + ":" + localStorage.getItem("PASSWORD")),
-    "lang": langHeader.lang
-}
 
 function Account(id, username, lastName, firstName, role, deptId,
     deptName) {
@@ -18,32 +11,24 @@ function Account(id, username, lastName, firstName, role, deptId,
     this.departmentName = deptName;
 }
 
-const baseApi = "http://localhost:8080/api/v1"
-let accountList = [];
-const url = baseApi + "/accounts";
-// paging
-let currentPage = 1;
-const size = 10;
 
-// sorting
-let sortField = "id";
-let isAsc = false;
+let accountList = [];
+
 
 // crud service: start
 function getAccountList() {
-
-    let url = baseApi + "/accounts" + '?page='
+    let urlAcc = baseApi + "/accounts" + '?page='
         + `${currentPage - 1}` + '&size=' + size
         + "&sort=" + sortField + "," + (isAsc ? "asc" : "desc");
-
     const searchValue = document.getElementById("search-account-input");
     if (searchValue?.value) {
-        url += "&search.contains=" + searchValue.value;
+        urlAcc += "&search.contains=" + searchValue.value;
     }
+    
 
     // call API from server
     $.ajax({
-        url: url,
+        url: urlAcc,
         type: 'GET',
         contentType: "application/json",
         dataType: 'json', // datatype return
@@ -82,7 +67,7 @@ function createAccount() {
     };
 
     $.ajax({
-        url: url,
+        url:urlAcc,
         type: 'POST',
         data: JSON.stringify(account), // body
         contentType: "application/json", // type of body (json, xml, text)
@@ -123,7 +108,7 @@ function updateAccount() {
     };
 
     $.ajax({
-        url: url + "/" + id,
+        url: urlAcc+ "/" + id,
         type: 'PUT',
         data: JSON.stringify(account),
         contentType: "application/json", // type of body (json, xml, text)
@@ -146,7 +131,7 @@ function updateAccount() {
 function deleteAccount(id) {
     // TODO validate
     $.ajax({
-        url: url + "/" + id,
+        url: urlAcc+ "/" + id,
         type: 'DELETE',
         headers: headers,
         success: function (result) {
@@ -209,7 +194,7 @@ function fillAccountToTable() {
 }
 
 function openCreateAccountModal() {
-    resetForm();
+    resetFormAcc();
     openModal();
 }
 
@@ -241,7 +226,7 @@ function openConfirmDelete(id) {
     }
 }
 
-function resetForm() {
+function resetFormAcc() {
     document.getElementById("username").value = "";
     document.getElementById("firstName").value = "";
     document.getElementById("lastName").value = "";
@@ -257,11 +242,7 @@ function hideModal() {
     $('#myCreateAccountModal').modal('hide');
 }
 
-function showSuccessAlert() {
-    $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
-        $("#success-alert").slideUp(500);
-    });
-}
+
 
 function saveAccount() {
     const id = document.getElementById("id").value;
@@ -274,7 +255,7 @@ function saveAccount() {
 }
 
 // paging
-function fillAccountPaging(currentSize, totalPages) {
+function fillAccountPaging(currentsize, totalPages) {
     // prev
     if (currentPage > 1) {
         document.getElementById("account-previousPage-btn").disabled = false;
@@ -290,7 +271,7 @@ function fillAccountPaging(currentSize, totalPages) {
     }
 
     // text
-    document.getElementById("account-page-info").innerHTML = currentSize
+    document.getElementById("account-page-info").innerHTML = currentsize
         + " tài khoản của trang " + currentPage + " / " + totalPages;
 }
 
